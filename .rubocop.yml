@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - 'Rakefile'
+    - 'Guardfile'
+    - '*.gemspec'
+    - '**/*.rake'
