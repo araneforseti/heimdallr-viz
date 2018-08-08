@@ -14,8 +14,16 @@ module HeimdallrViz
       Dir.mkdir output_dir unless File.exist? output_dir
     end
 
-    def check_visual(element_selector:, prior_image:)
-      self.working_dir = "#{output_dir}/#{element_selector.values[0]}"
+    def check_visuals(elements)
+      all_same = true
+      elements.each do |element|
+        all_same = false unless check_visual(element)
+      end
+      all_same
+    end
+
+    def check_visual(element_name:, element_selector:, prior_image:)
+      self.working_dir = "#{output_dir}/#{element_name}"
       Dir.mkdir working_dir unless File.exist? working_dir
       element = driver.find_element(element_selector)
       screenshot = take_screenshot
