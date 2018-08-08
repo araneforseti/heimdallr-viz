@@ -60,10 +60,17 @@ module HeimdallrViz
 
     def highlight(image:, x:, y:, width:, height:)
       area = Magick::Image.new(width, height) do
-        self.background_color = 'black'
+        self.background_color = 'yellow'
       end
-      highlighted = image.composite(area, x, y, Magick::SoftLightCompositeOp)
+      # area.alpha(Magick::ActivateAlphaChannel)
+      area.opacity = 0.7 * Magick::QuantumRange
+      # highlighted = image.composite(area, x, y, Magick::SoftLightCompositeOp)
+      highlighted = image.dissolve(area, 0.9, 1.0, x, y)
       highlighted.write("#{working_dir}/areas_of_interest.png")
+    end
+
+    def dissolve(x, y)
+      highlighted = image.dissolve(area, 1.0, 0.5, x, y)
     end
 
     def same_image(new_image_file, prior_image_file)
