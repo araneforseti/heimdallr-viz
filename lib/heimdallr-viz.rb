@@ -5,17 +5,21 @@ module HeimdallrViz
   # Class for creating the visual shots
   class Viz
     attr_accessor :driver
+    attr_accessor :output_dir
+    attr_accessor :working_dir
 
     def initialize(driver:)
       self.driver = driver
+      self.output_dir = 'heimdall-report'
+      Dir.mkdir output_dir unless File.exist? output_dir
     end
 
     def check_visual(element_selector:, prior_image:)
-      Dir.mkdir 'viz_temp' unless File.exist? 'viz_temp'
-      driver.save_screenshot('viz_temp/screen.png')
-      image = Magick::Image.read('viz_temp/screen.png')[0]
+      self.working_dir = "#{output_dir}/#{element_selector.values[0]}"
+      Dir.mkdir working_dir unless File.exist? working_dir
       element = driver.find_element(element_selector)
-      new_image = try_element(element, image)
+      screenshot = take_screenshot
+      new_image = component_image(element, screenshot)
       unless same_image(new_image, prior_image).zero?
         create_comparison_map(new_image, prior_image)
         return false
@@ -23,7 +27,13 @@ module HeimdallrViz
       true
     end
 
-    def try_element(element, image)
+    def take_screenshot
+      screenshot_file = "#{working_dir}/screen.png"
+      driver.save_screenshot(screenshot_file)
+      Magick::Image.read(screenshot_file)[0]
+    end
+
+    def component_image(element, image)
       width = element.size.width * 2
       height = element.size.height * 2
       location = element.location
@@ -32,12 +42,12 @@ module HeimdallrViz
 
       highlight(image: image, x: x, y: y, width: width, height: height)
       crop_image(image: image, x: x, y: y, width: width, height: height)
-      'viz_temp/cropped.png'
     end
 
     def crop_image(image:, x:, y:, width:, height:)
       cropped = image.crop(x, y, width, height)
-      cropped.write('viz_temp/cropped.png')
+      cropped.write("#{working_dir}/actual.png")
+      "#{working_dir}/actual.png"
     end
 
     def highlight(image:, x:, y:, width:, height:)
@@ -45,7 +55,7 @@ module HeimdallrViz
         self.background_color = 'black'
       end
       highlighted = image.composite(area, x, y, Magick::SoftLightCompositeOp)
-      highlighted.write('viz_temp/areas_of_interest.png')
+      highlighted.write("#{working_dir}/areas_of_interest.png")
     end
 
     def same_image(new_image_file, prior_image_file)
@@ -61,7 +71,7 @@ module HeimdallrViz
                                          0,
                                          0,
                                          Magick::DifferenceCompositeOp)
-      difference.write('viz_temp/difference.png')
+      difference.write("#{working_dir}/difference.png")
     end
   end
 end
