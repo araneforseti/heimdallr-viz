@@ -4,3 +4,6 @@ AllCops:
     - 'Guardfile'
     - '*.gemspec'
     - '**/*.rake'
+  
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
