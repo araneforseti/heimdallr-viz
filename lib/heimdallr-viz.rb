@@ -10,7 +10,7 @@ module HeimdallrViz
 
     def initialize(driver:)
       self.driver = driver
-      self.output_dir = 'heimdall-report'
+      self.output_dir = 'heimdallr-report'
       Dir.mkdir output_dir unless File.exist? output_dir
     end
 
@@ -69,13 +69,10 @@ module HeimdallrViz
       highlighted.write("#{working_dir}/areas_of_interest.png")
     end
 
-    def dissolve(x, y)
-      highlighted = image.dissolve(area, 1.0, 0.5, x, y)
-    end
-
     def same_image(new_image_file, prior_image_file)
       new_image = Magick::Image.read(new_image_file)
       prior_image = Magick::Image.read(prior_image_file)
+      prior_image[0].write("#{working_dir}/expected.png")
       new_image <=> prior_image
     end
 
