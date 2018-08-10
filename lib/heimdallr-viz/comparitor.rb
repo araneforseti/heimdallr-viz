@@ -16,8 +16,8 @@ module HeimdallrViz
     end
 
     def compare_with_percent_threshold(expected:,
-                                     actual:,
-                                     threshold:)
+                                       actual:,
+                                       threshold:)
       result = percent_diff(expected, actual)
       result < threshold
     end
