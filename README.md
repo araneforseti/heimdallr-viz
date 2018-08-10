@@ -1,5 +1,7 @@
 # heimdallr-viz
 
+[![Build Status](https://travis-ci.org/araneforseti/heimdallr-viz.svg?branch=master)](https://travis-ci.org/araneforseti/heimdallr-viz)
+
 Ruby gem for aiding visual regression by taking partial screenshots of components using selenium selectors and comparing them to images of the expected look
 
 ## Requirements
