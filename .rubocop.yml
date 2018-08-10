@@ -7,3 +7,13 @@ AllCops:
   
 Naming/UncommunicativeMethodParamName:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
