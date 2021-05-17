@@ -1,5 +1,5 @@
 current directory: /Users/sarahhutchins/Projects/heimdallr-viz/vendor/cache/ruby/2.6.0/gems/rmagick-2.16.0/ext/RMagick
-/Users/sarahhutchins/.rbenv/versions/2.6.0/bin/ruby -I /Users/sarahhutchins/.rbenv/versions/2.6.0/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210516-83810-17z6jd4.rb extconf.rb
+/Users/sarahhutchins/.rbenv/versions/2.6.0/bin/ruby -I /Users/sarahhutchins/.rbenv/versions/2.6.0/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210516-82660-11mi5uc.rb extconf.rb
 checking for clang... yes
 checking for Magick-config... yes
 checking for outdated ImageMagick version (<= 6.4.9)... no
@@ -129,7 +129,7 @@ creating Makefile
 
 
 ======================================================================
-Sun 16May21 21:00:45
+Sun 16May21 20:35:49
 This installation of RMagick 2.16.0 is configured for
 Ruby 2.6.0 (x86_64-darwin20) and ImageMagick 6.9.12
 ======================================================================
@@ -212,4 +212,4 @@ linking shared-object RMagick2.bundle
 
 current directory: /Users/sarahhutchins/Projects/heimdallr-viz/vendor/cache/ruby/2.6.0/gems/rmagick-2.16.0/ext/RMagick
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 RMagick2.bundle ./.gem.20210516-83810-1djgtpe
+/usr/bin/install -c -m 0755 RMagick2.bundle ./.gem.20210516-82660-1ju4t6l

@@ -1,5 +1,5 @@
 current directory: /Users/sarahhutchins/Projects/heimdallr-viz/vendor/cache/ruby/2.6.0/gems/ffi-1.9.25/ext/ffi_c
-/Users/sarahhutchins/.rbenv/versions/2.6.0/bin/ruby -I /Users/sarahhutchins/.rbenv/versions/2.6.0/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210516-83810-bk63xb.rb extconf.rb
+/Users/sarahhutchins/.rbenv/versions/2.6.0/bin/ruby -I /Users/sarahhutchins/.rbenv/versions/2.6.0/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210516-75633-u4uate.rb extconf.rb
 checking for ffi_call() in -lffi... yes
 checking for ffi_closure_alloc()... yes
 checking for ffi_raw_call()... yes
@@ -54,4 +54,4 @@ linking shared-object ffi_c.bundle
 
 current directory: /Users/sarahhutchins/Projects/heimdallr-viz/vendor/cache/ruby/2.6.0/gems/ffi-1.9.25/ext/ffi_c
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20210516-83810-kmvyif
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20210516-75633-zzz6eb
