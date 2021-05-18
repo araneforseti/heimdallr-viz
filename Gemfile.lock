@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     heimdallr-viz (0.0.1.b1)
-      rmagick (~> 2.16.0, >= 2.16.0)
+      rmagick (>= 2.16.0, < 4.3)
 
 GEM
   remote: https://rubygems.org/
@@ -52,7 +52,7 @@ GEM
     regexp_parser (2.1.1)
     require_all (3.0.0)
     rexml (3.2.5)
-    rmagick (2.16.0)
+    rmagick (4.2.2)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
