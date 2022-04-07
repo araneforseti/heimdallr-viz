@@ -1,4 +1,9 @@
 name: Dependabot Auto Merge
+
+permissions:
+  pull-requests: write
+  contents: write
+
 on: 
   pull_request:
   # Allows you to run this workflow manually from the Actions tab
