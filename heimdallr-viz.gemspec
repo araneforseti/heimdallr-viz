@@ -40,5 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'terminal-notifier', '~> 2.0', '>= 2.0.0'
   spec.add_development_dependency 'terminal-notifier-guard', '~> 1.6', '>= 1.6.0'
 
-  spec.add_runtime_dependency 'rmagick', '>= 2.16.0', '< 4.4'
+  spec.add_runtime_dependency 'rmagick', '>= 2.16.0', '< 5.1'
 end
